@@ -1,0 +1,37 @@
+.header {
+    background-color: #0f172a;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    border-bottom: 2px solid #334155;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .header p {
+    margin: 8px 0 0;
+    color: #94a3b8;
+    font-size: 14px;
+  }
+
+  .cajaenlaceInicio {
+    text-align: left;
+  }
+
+  .Inicioenlace:hover {
+    background-color: #bedf17;
+    transform: translateY(-2px);
+  }
+
+  .Favoritosenlace {
+    margin-left: 15px;
+  }
+ 
+  .Favoritosenlace:hover {
+    background-color: #d21d30;
+    transform: translateY(-2px);
+  }

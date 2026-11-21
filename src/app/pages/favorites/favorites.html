@@ -1,0 +1,31 @@
+<h2>Mis películas favoritas</h2>
+@if (favoriteService.favorites().length > 0) {
+
+  <div class="movie-grid">
+
+    @for (movie of favoriteService.favorites(); track movie.id) {
+
+      <a class="movie-card" [routerLink]="['/movie', movie.id]">
+
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          [alt]="movie.title"
+        >
+
+        <h2>{{ movie.title }}</h2>
+
+        <p>⭐ {{ movie.vote_average.toFixed(1) }} / 10</p>
+
+      </a>
+
+    }
+
+  </div>
+
+} @else {
+
+  <p class="no-results">
+    Todavía no tienes películas favoritas.
+  </p>
+
+}

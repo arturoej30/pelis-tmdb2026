@@ -1,0 +1,52 @@
+<div class="search-box">
+  <input
+
+    type="text"
+    placeholder="Buscar películas..."
+    [value]="searchText()"
+    (input)="onSearch($event)"
+  >
+  <button (click)="searchMovies()">
+    Buscar
+  </button>
+</div>
+
+
+
+
+
+
+
+
+
+@if (movies().length > 0) {
+  <div class="movie-grid">
+    @for (movie of movies(); track movie.id) {
+
+      <a class="movie-card" [routerLink]="['/movie', movie.id]">
+
+        <div class="poster-container">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            [alt]="movie.title"
+          >
+
+          <button
+            type="button"
+            (click)="senalarFavorito(movie, $event)"
+            [class.favorito-activo]="favoriteService.isFavorite(movie.id)"
+            [attr.aria-label]="favoriteService.isFavorite(movie.id) ? 'Quitar de favoritos' : 'Añadir a favoritos'"
+          >
+            {{ favoriteService.isFavorite(movie.id) ? '♥' : '♡' }}
+          </button>
+        </div>
+
+        <h2>{{ movie.title }}</h2>
+        <p>⭐ {{ movie.vote_average.toFixed(1) }} / 10</p>
+
+      </a>
+    }
+  </div>
+} @else {
+  <p class="no-results">No se han encontrado películas.</p>
+}

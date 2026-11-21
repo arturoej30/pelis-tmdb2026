@@ -1,0 +1,119 @@
+:host {
+    display: block;
+  }
+  
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1024px) {
+    .movie-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .movie-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .movie-card {
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #1e293b;
+  }
+  
+  .movie-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+  }
+  
+  .movie-card h2 {
+    padding: 10px;
+    margin: 0;
+    color: white;
+    font-size: 15px;
+  }
+  .movie-card p {
+    margin: 0;
+    padding: 0 10px 12px;
+    color: #facc15;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .no-results {
+    padding: 40px 20px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 18px;
+  }
+  .search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 25px 20px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 16px;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background-color: #14010c;
+    color: white;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .search-box input:focus {
+    border-color: #3b82f6;
+  }
+  
+  .search-box input::placeholder {
+    color: #94a3b8;
+  }
+  
+  .search-box button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .search-box button:hover {
+    background-color: #1d4ed8;
+  }
+  .poster-container {
+    position: relative;
+  }
+  
+  .poster-container button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .poster-container button.favorito-activo {
+    color: red;
+  }

@@ -1,0 +1,39 @@
+@if (movie(); as movieData) {
+    <div class="movie-detail">
+  
+      <div class="movie-poster">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500' + movieData.poster_path"
+          [alt]="movieData.title"
+        >
+      </div>
+  
+      <div class="movie-info">
+        <h1>{{ movieData.title }}</h1>
+  
+        <p class="tagline">{{ movieData.tagline }}</p>
+  
+        <div class="movie-rating">
+          ⭐ {{ movieData.vote_average.toFixed(1) }} / 10
+        </div>
+  
+        <h2>Sinopsis</h2>
+        <p>{{ movieData.overview }}</p>
+  
+        <h2>Géneros</h2>
+        <div class="movie-genres">
+          @for (genre of movieData.genres; track genre.id) {
+            <span>{{ genre.name }}</span>
+          }
+        </div>
+  
+        <div class="movie-extra">
+          <p>Fecha de estreno: {{ movieData.release_date }}</p>
+          <p>Duración: {{ movieData.runtime }} minutos</p>
+        </div>
+      </div>
+  
+    </div>
+  } @else {
+    <p class="loading">Cargando información de la película...</p>
+  }
